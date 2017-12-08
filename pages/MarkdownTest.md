@@ -45,7 +45,8 @@ Horizontal rule below this line
 ---
 I think that `csh` is better than `ksh`.
 
-$$m=\dfrac{x_2-x_1}{y_2-y_1}$$
+$$m=
+\dfrac{x_2-x_1}{y_2-y_1}$$
 
 Did you know that $E=mc^2$?
 
