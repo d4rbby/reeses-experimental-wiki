@@ -1,4 +1,4 @@
-To example $KaTeX$ formatting put `$` around a \KaTeX statement. To make the $KaTeX$ display as a block, use `$$`.
+To use $\KaTeX$ formatting put `$` around a $\KaTeX$ statement. To make the $\KaTeX$ display as a block, use `$$`.
 
 ## Examples
 ### Inline
