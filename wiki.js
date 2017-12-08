@@ -71,7 +71,7 @@ window.addEventListener('load', function() {
 
         // Setup KaTeX
         head.load('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
-          head.log('katex-autoload.js', function() {
+          head.load('katex-autoload.js', function() {
             renderMathInElement(document.body, { delimiters: [
               {left: "$$", right: "$$", display: true},
               {left: "$", right: "$", display: false}
