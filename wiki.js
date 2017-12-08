@@ -4,6 +4,7 @@
 @author Carver Harrison
 @licence bsd-3-clause
 @site https://dorper.me/p/wiki
+@file Javascript for DorpWiki
 */
 
 /* @library https://github.com/Holixus/nano-markdown */
