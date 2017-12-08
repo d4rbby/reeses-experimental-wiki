@@ -32,7 +32,8 @@ function jget(url, cb) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       cb(this.responseText);
-    } else {
+    }
+    else if (this.readyState == 4 && this.status == 200) {
       console.error("AJAX Error: Could not GET '"+url+"'.");
     }
   };
