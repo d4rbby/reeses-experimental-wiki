@@ -52,22 +52,14 @@ window.addEventListener('load', function() {
     }
     
     // Load wiki page
-    jget('pages/'+ptitle+'.md', function(data) {
-      var pbody = data;
-      
+    jget('pages/'+ptitle+'.md', function(pbody) {
       head.load("marked.js", function() {
+        // Convert the markdown to HTML
         var pbodym = marked(pbody);
+        
+        // Insert content into the DOM
         document.getElementById('title').innerHTML = ptitle;
         document.getElementById('content').innerHTML = pbodym;      
-
-        // Setup Bindings
-        document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
-          i.innerHTML = pbody;
-        });
-
-        document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
-          i.innerHTML = pbodym;
-        });
 
         // Setup KaTeX
         head.load('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
@@ -82,6 +74,19 @@ window.addEventListener('load', function() {
         // Setup Highlight.js
         head.load('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', function() {
           hljs.initHighlighting();
+        });
+        
+        // Setup Bindings
+        document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
+          i.innerHTML = pbody;
+        });
+
+        document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
+          i.innerHTML = pbodym;
+        });
+        
+        document.querySelectorAll('[data-bind="title"]').forEach(function (i) {
+          i.innerText = ptitle;
         });
 
         // Log success message to console
