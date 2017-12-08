@@ -54,30 +54,39 @@ window.addEventListener('load', function() {
     // Load wiki page
     jget('pages/'+ptitle+'.md', function(data) {
       var pbody = data;
-      var pbodym = marked(pbody);
-      document.getElementById('title').innerHTML = ptitle;
-      document.getElementById('content').innerHTML = pbodym;      
       
-      // Setup Bindings
-      document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
-        i.innerHTML = pbody;
+      head.load("marked.js", function() {
+        var pbodym = marked(pbody);
+        document.getElementById('title').innerHTML = ptitle;
+        document.getElementById('content').innerHTML = pbodym;      
+
+        // Setup Bindings
+        document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
+          i.innerHTML = pbody;
+        });
+
+        document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
+          i.innerHTML = pbodym;
+        });
+
+        // Setup KaTeX
+        head.load('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
+          head.log('katex-autoload.js', function() {
+            renderMathInElement(document.body, { delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ]});
+          });
+        });
+        
+        // Setup Highlight.js
+        head.load('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', function() {
+          hljs.initHighlighting();
+        });
+
+        // Log success message to console
+        console.log("Done loading wiki page '"+ptitle+"'.");
       });
-      
-      document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
-        i.innerHTML = pbodym;
-      });
-      
-      // Setup KaTeX
-      renderMathInElement(document.body, { delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false}
-      ]});
-      
-      // Setup Highlight.js
-      hljs.initHighlighting();
-      
-      // Log success message to console
-      console.log("Done loading wiki page '"+ptitle+"'.");
     });
   });
 });
