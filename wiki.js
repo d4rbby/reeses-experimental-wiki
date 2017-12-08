@@ -44,17 +44,27 @@ function jget(url, cb) {
 
 // On Window Load
 window.addEventListener('load', function() {
+  // Setup KaTeX
+  renderMathInElement(document.body, { delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "$", right: "$", display: false}
+  ]});
+  
+  // Load files
   jget('CONFIG', function(data) {
+    // Load Config
     data.split('\n').forEach(function(l) {
       var kv = l.split('=');
       config[kv[0]] = kv[1];
     });
     
-    // Load Wiki Page
+    // Get Wiki Title
     var ptitle = window.location.href.split('?')[1]
     if (!ptitle) {
       ptitle = config.homepage;
     }
+    
+    // Load Wiki Page
     jget('pages/'+ptitle+'.md', function(data) {
       var pbody = data;
       var pbodym = marked(pbody);
