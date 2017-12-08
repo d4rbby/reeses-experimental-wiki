@@ -1,0 +1,16 @@
+/*
+@project DorpWiki
+@version 1.0.0
+@author Carver Harrison
+@licence bsd-3-clause
+@site https://dorper.me/p/wiki
+@file Default Theme for DorpWiki
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-famiy: "Times New Roman", "Times", serif;
+}
