@@ -49,7 +49,7 @@ window.addEventListener('load', function() {
     // Load Wiki Page
     var ptitle = window.location.href.split('?')[1];
     
-    jget('pages/'+pname+'.md', function(data) {
+    jget('pages/'+ptitle+'.md', function(data) {
       var pbody = data;
       var pbodym = nmd(pbody);
       document.getElementById('title').innerHTML = ptitle;
