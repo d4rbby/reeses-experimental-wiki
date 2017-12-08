@@ -40,7 +40,7 @@ this
 
 [Link to the Home page](?Home)
 [Link to Dorper](https://dorper.me)
-![AJAX Logo (External Image)](https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Ajax_logo.svg/1200px-Ajax_logo.svg.png)
+![Markdown Banner (External Image)](https://camo.githubusercontent.com/947d54f0e331bde8fd5cdf33b9e0bca1a9858192/687474703a2f2f636172676f2e64757374696e6375727469732e636f6d2f70726f6a656374732f6d646f776e2d6865616465722e706e673f34)
 
 Horizontal rule below this line
 ---
