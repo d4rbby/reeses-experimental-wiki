@@ -52,7 +52,7 @@ window.addEventListener('load', function() {
     });
     
     // Get wiki title
-    var ptitle = window.location.href.split('?')[1]
+    var ptitle = window.location.href.split('?')[1];
     if (!ptitle) {
       ptitle = config.homepage;
     }
