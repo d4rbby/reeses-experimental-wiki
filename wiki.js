@@ -73,5 +73,5 @@ window.addEventListener('load', function() {
       // Log success message to console
       console.log("Done loading wiki page '"+ptitle+"'.");
     });
-  })
+  });
 });
