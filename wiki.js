@@ -42,34 +42,35 @@ function jget(url, cb) {
   };
 }
 
-// On Window Load
-window.addEventListener('load', function() {
-  // Setup KaTeX
-  renderMathInElement(document.body, { delimiters: [
-    {left: "$$", right: "$$", display: true},
-    {left: "$", right: "$", display: false}
-  ]});
-  
-  // Load files
+// On window load
+window.addEventListener('load', function() {  
   jget('CONFIG', function(data) {
-    // Load Config
+    // Load config
     data.split('\n').forEach(function(l) {
       var kv = l.split('=');
       config[kv[0]] = kv[1];
     });
     
-    // Get Wiki Title
+    // Get wiki title
     var ptitle = window.location.href.split('?')[1]
     if (!ptitle) {
       ptitle = config.homepage;
     }
     
-    // Load Wiki Page
+    // Load wiki page
     jget('pages/'+ptitle+'.md', function(data) {
       var pbody = data;
       var pbodym = marked(pbody);
       document.getElementById('title').innerHTML = ptitle;
       document.getElementById('content').innerHTML = pbodym;      
+      
+      // Setup KaTeX
+      renderMathInElement(document.body, { delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ]});
+      
+      // Log success message to console
       console.log("Done loading wiki page '"+ptitle+"'.");
     });
   })
