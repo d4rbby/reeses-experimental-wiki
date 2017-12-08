@@ -3,4 +3,6 @@
 # Example
 This is the source code to the page, try not to think to hard about it.
 
-<pre class="lang-html" data-bind="page markdown"></pre>
+<pre class="html" data-bind="page markdown">
+This automagickal code block uses JavaScript, give it a second to load. If it doesn't load, update your browser.
+</pre>
