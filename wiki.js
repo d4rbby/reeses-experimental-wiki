@@ -70,6 +70,9 @@ window.addEventListener('load', function() {
         {left: "$", right: "$", display: false}
       ]});
       
+      // Setup Highlight.js
+      hljs.initHighlightingOnLoad();
+      
       // Log success message to console
       console.log("Done loading wiki page '"+ptitle+"'.");
     });
