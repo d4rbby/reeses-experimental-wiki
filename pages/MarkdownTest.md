@@ -21,9 +21,6 @@ __underline__
 - earth
 - mars
 
-**Above:** Unordered List
-**Below:** Ordered List
-
 1. apples
 2. oranges
 3. grapes
