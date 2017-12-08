@@ -48,8 +48,10 @@ window.addEventListener('load', function() {
     });
     
     // Load Wiki Page
-    var ptitle = window.location.href.split('?')[1];
-    
+    var ptitle = window.location.href.split('?')[1]
+    if (typeof(ptitle) == undefined) {
+      ptitle = config.homepage;
+    }
     jget('pages/'+ptitle+'.md', function(data) {
       var pbody = data;
       var pbodym = nmd(pbody);
