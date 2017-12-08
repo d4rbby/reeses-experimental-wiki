@@ -8,13 +8,9 @@ $$E=mc^2$$
 ### MathML
 ```xml
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow>
-</mrow>
-</math>
-<mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow>
-</mrow>
+  <mrow>
+    <mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup>
+  </mrow>
 </math>
 ```
 ### Rendered
