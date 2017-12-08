@@ -39,8 +39,8 @@ XHTML is based on [XML](?XML)
 HTML5 was built from the ground up based on features from previous HTML versions.
 
 ### Example
-```html
 
+```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
