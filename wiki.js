@@ -54,7 +54,7 @@ window.addEventListener('load', function() {
       var pbody = data;
       var pbodym = nmd(pbody);
       document.getElementById('title').innerHTML = ptitle;
-      document.getElementById('body').innerHTML = pbodym;      
+      document.getElementById('content').innerHTML = pbodym;      
       console.log("Done loading wiki page '"+ptitle+"'.");
     });
   })
