@@ -1,0 +1,1 @@
+**Extensible Markup Language** (XML) is a widely used extendable [MarkupLanguage](?MarkupLanguage). It is the base for [MicrosoftOffice](?MicrosoftOffice) documents and also the XML based [HTML](?HTML) version, XHTML.
