@@ -65,11 +65,11 @@ window.addEventListener('load', function() {
       document.getElementById('content').innerHTML = pbodym;      
       
       // Setup Bindings
-      document.querySelectorAll('[data-bind=page markdown]').forEach(function (i) {
+      document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
         i.innerHTML = pbody;
       });
       
-      document.querySelectorAll('[data-bind=page html]').forEach(function (i) {
+      document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
         i.innerHTML = pbodym;
       });
       
