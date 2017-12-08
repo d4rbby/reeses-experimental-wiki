@@ -64,6 +64,15 @@ window.addEventListener('load', function() {
       document.getElementById('title').innerHTML = ptitle;
       document.getElementById('content').innerHTML = pbodym;      
       
+      // Setup Bindings
+      document.querySelectorAll('[data-bind=page markdown]').forEach(function (i) {
+        i.innerHTML = pbody;
+      });
+      
+      document.querySelectorAll('[data-bind=page html]').forEach(function (i) {
+        i.innerHTML = pbodym;
+      });
+      
       // Setup KaTeX
       renderMathInElement(document.body, { delimiters: [
         {left: "$$", right: "$$", display: true},
