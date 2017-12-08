@@ -88,6 +88,10 @@ window.addEventListener('load', function() {
         document.querySelectorAll('[data-bind="title"]').forEach(function (i) {
           i.innerText = ptitle;
         });
+        
+        jget("https://api.github.com/repos/carverh/wiki/commits", function(r) {
+          
+        });
 
         // Log success message to console
         console.log("Done loading wiki page '"+ptitle+"'.");
