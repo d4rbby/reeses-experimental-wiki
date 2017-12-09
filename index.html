@@ -10,23 +10,23 @@
       <script data-main="wiki.js" src="lib/require/require.js"></script>
       
       <!-- Templates -->
-      <script type="text/html" id="tp-search">
+      <template id="tp-search">
          <form id="sform" action="" aria-label="Search Form">
             <div aria-label="Search Query Wrapper">
                <label for="squery" aria-label="Search Label">Search Query</label>
                <input type="text" id="squery" placeholder="Search Query" aria-label="Search Query">
             </div>
          </form>
-      </script>
+      </template>
       
-      <script type="text/html" id="tp-results">
+      <template id="tp-results">
          <p>Found <strong>{{results.length}}</strong> results for <strong>{{query}}</strong>.</p>
          <ul>
-         {{#each results}}
+         {{#results}}
             <li><a href="?{{this}}">{{this}}</a></li>
-         {{/each}}
+         {{/results}}
          </ul>
-      </script>
+      </template>
    </head>
    <body>
       <!--
