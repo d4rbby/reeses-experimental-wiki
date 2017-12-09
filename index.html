@@ -20,8 +20,17 @@
       </template>
       
       <template id="tp-results">
-         <p>Found <strong>{{results.length}}</strong> results for <strong>{{query}}</strong>.</p>
-         <ul>
+         <p aria-label="Description">Found <strong>{{results.length}}</strong> results for <strong>{{query}}</strong>.</p>
+         <ul aria-label="Articles">
+         {{#results}}
+            <li><a href="?{{.}}">{{.}}</a></li>
+         {{/results}}
+         </ul>
+      </template>
+      
+      <template id="tp-listing">
+         <p aria-label="Description">There is <strong>{{results.length}}</strong> articles in the <strong>Main Namespace</strong>.</p>
+         <ul aria-label="Articles">
          {{#results}}
             <li><a href="?{{.}}">{{.}}</a></li>
          {{/results}}
