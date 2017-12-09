@@ -11,9 +11,11 @@
       
       <!-- Templates -->
       <template id="tp-search">
-         <form method="GET" action=".">
-            <input type="text" id="q" placeholder="Search Term" />
-            <input type="submit" />
+         <form id="sform" aria-label="Search Form">
+            <div aria-label="Search Query Wrapper">
+               <label for="squery" aria-label="Search Label">Search Query</label>
+               <input type="text" id="squery" placeholder="Search Query" aria-label="Search Query">
+            </div>
          </form>
       </template>
       <template id="tp-results">
