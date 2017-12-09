@@ -54,7 +54,7 @@ jget('CONFIG', function(data) {
 
   // Load wiki page
   jget('pages/'+ptitle+'.md', function(pbody) {
-    require("lib/marked/marked.js", function(marked) {
+    require(['lib/marked/marked.js'], function(marked) {
       // Convert the markdown to HTML
       var pbodym = marked(pbody);
 
@@ -63,13 +63,11 @@ jget('CONFIG', function(data) {
       document.getElementById('content').innerHTML = pbodym;      
 
       // Setup KaTeX
-      require('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
-       require('lib/katex/autoload.js', function(renderMathInElement) {
-          renderMathInElement(document.body, { delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false}
-          ]});
-        });
+      require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function() {
+        renderMathInElement(document.body, { delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+        ]});
       });
 
       // Setup Highlight.js
