@@ -62,12 +62,12 @@ var specialPages = {
       var t = window.location.hash.slice(1);
       var cel = document.getElementById('content');
       var cet = document.getElementById('title');
+      cet.innerText = 'Special/Search';
       if (t == '') {
         // Search page
         cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
         var sform = document.getElementById('sform');
         var squery = document.getElementById('squery');
-        cet.innerText = "Special/Search";
         sform.addEventListener('submit', function(ev) {
           window.location.replace('?Special/Search#'+squery.value);
           window.location.reload();
@@ -87,7 +87,6 @@ var specialPages = {
         });
         */
         
-        cet.innerText = "Special/Search";
         jget('FILES', function(data) {
           var files = data.split('\n');
           cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
@@ -101,7 +100,7 @@ var specialPages = {
   Listing: function() {
     var cel = document.getElementById('content');
     var cet = document.getElementById('title');
-    cet.innerText = "Special/Listing";
+    cet.innerText = 'Special/Listing';
     jget('FILES', function(data) {
       var files = data.split('\n');
       cel.innerHTML = Mustache.render(document.getElementById('tp-listing').innerHTML, {
