@@ -63,7 +63,7 @@ jget('CONFIG', function(data) {
       document.getElementById('content').innerHTML = pbodym;      
 
       // Setup KaTeX
-      require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function(KaTeX, renderMathInElement) {
+      require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function(katex, renderMathInElement) {
         renderMathInElement(document.body, { delimiters: [
           {left: "$$", right: "$$", display: true},
           {left: "$", right: "$", display: false}
