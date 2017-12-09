@@ -10,6 +10,23 @@
 // Globals
 var katex;
 
+// Special page handlers
+var specialPages = {
+  Search: function() {
+    require(['lib/tinystache/tinystache.js'], function(mustache) {
+      var t = window.location.hash;
+      var cel = document.getElementById('content');
+      if (t == '') {
+        // Search page
+        cel.innerHTML = mustache(document.getElementById("tp-search").innerHTML);
+      } else {
+        // Results page
+        cel.innerHTML = mustache(document.getElementById("tp-results").innerHTML);
+      }
+    });
+  }
+};
+
 // Variables
 var config = {};
 
@@ -58,6 +75,11 @@ jget('CONFIG', function(data) {
     ptitle = config.homepage;
   }
 
+  // Special page handling
+  if (ptitle.startsWith("Special/")) {
+    specialPages[ptitle.split("Special/")[1]](;
+  }
+  
   // Load wiki page
   jget('pages/'+ptitle+'.md', function(pbody) {
     require(['lib/marked/marked.js'], function(marked) {
