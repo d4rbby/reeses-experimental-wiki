@@ -7,6 +7,9 @@
 @file Javascript for DorpWiki
 */
 
+// Initializing Message
+console.log("Initializing...");
+
 // Variables
 var config = {};
 
