@@ -94,6 +94,14 @@ var specialPages = {
         });
       }
     });
+  },
+  Listing: function() {
+    jget('FILES', function(data) {
+      var files = data.split('\n');
+      cel.innerHTML = Mustache.render(document.getElementById('tp-listing').innerHTML, {
+        results: files
+      }); 
+    });
   }
 };
 
