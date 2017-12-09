@@ -1,0 +1,1 @@
+**Linux** is a name that broadly denotes a family of free and open-source software operating systems built around the Linux kernel. Typically, Linux is packaged in a form known as a Linux distribution for both desktop and server use.
