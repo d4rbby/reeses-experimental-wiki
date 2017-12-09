@@ -98,14 +98,16 @@ var specialPages = {
     });
   },
   Listing: function() {
-    var cel = document.getElementById('content');
-    var cet = document.getElementById('title');
-    cet.innerText = 'Special/Listing';
-    jget('FILES', function(data) {
-      var files = data.split('\n');
-      cel.innerHTML = Mustache.render(document.getElementById('tp-listing').innerHTML, {
-        results: files
-      }); 
+    require(['lib/mustache/mustache.js'], function(Mustache) {
+      var cel = document.getElementById('content');
+      var cet = document.getElementById('title');
+      cet.innerText = 'Special/Listing';
+      jget('FILES', function(data) {
+        var files = data.split('\n');
+        cel.innerHTML = Mustache.render(document.getElementById('tp-listing').innerHTML, {
+          results: files
+        }); 
+      });
     });
   }
 };
