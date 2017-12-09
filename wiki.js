@@ -18,10 +18,15 @@ var specialPages = {
       var cel = document.getElementById('content');
       if (t == '') {
         // Search page
-        cel.innerHTML = Mustache.render(document.getElementById("tp-search").innerHTML);
+        cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
+        var sform = document.getElementById('sform');
+        var squery = document.getElementById('squery');
+        sform.addEventListener("submit", function() {
+          window.location.replace("?Special/Search#"+squery.value);
+        });
       } else {
         // Results page
-        cel.innerHTML = Mustache.render(document.getElementById("tp-results").innerHTML);
+        cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML);
       }
     });
   }
