@@ -63,7 +63,7 @@ var specialPages = {
       var cel = document.getElementById('content');
       if (t == '') {
         // Search page
-        cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerText);
+        cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
         var sform = document.getElementById('sform');
         var squery = document.getElementById('squery');
         sform.addEventListener('submit', function(ev) {
@@ -78,7 +78,7 @@ var specialPages = {
         jget('https://api.github.com/repos/carverh/wiki/contents/pages', function(data) {
           var dato = JSON.parse(data);
           var rfiles = ghGetFiles('/');
-          cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerText, {
+          cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
             query: rquery,
             results: rfiles
           });
