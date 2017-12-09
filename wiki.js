@@ -48,7 +48,7 @@ function ghGetFiles(path) {
         out.push(i.path.split('pages/')[1].split('.md')[0]);
       } else {
         var fl = ghGetFiles(i.path.split('pages/')[1]);
-        var out = out.concat(fl);
+        out = out.concat(fl);
       }
     });
   });
