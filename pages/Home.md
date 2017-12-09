@@ -1,1 +1,4 @@
-DorpWiki is a static wiki I wrote in client-side Javascript using AJAX and [marked](https://github.com/chjj/marked).
+# Welcome to DorpWiki!
+- [List of Pages](?Special/Listing)
+- [Search Pages](?Special/Search)
+- [About DorpWiki](?Help/About)
