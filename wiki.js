@@ -91,7 +91,7 @@ var specialPages = {
           var afiles = data.split('\n');
           var files = [];
           afiles.forEach(function(file) {
-            if (RegExp(t).test(file)) {
+            if (RegExp(t).test(file.toLowerCase())) {
               files.push(file);
             }
           });
