@@ -7,9 +7,6 @@
 @file Javascript for DorpWiki
 */
 
-// Initializing Message
-console.log("Initializing...");
-
 // Variables
 var config = {};
 
@@ -41,6 +38,9 @@ function jget(url, cb) {
 
 // On window load
 window.addEventListener('load', function() {  
+  // Initializing Message
+  console.log("Initializing...");
+  
   jget('CONFIG', function(data) {
     // Load config
     data.split('\n').forEach(function(l) {
