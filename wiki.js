@@ -78,14 +78,14 @@ jget('CONFIG', function(data) {
   });
 
   // Get wiki title
-  var ptitle = window.location.href.split('?')[1];
+  var ptitle = window.location.href.split('?')[1].split('#')[0];
   if (!ptitle) {
     ptitle = config.homepage;
   }
 
   // Special page handling
-  if (ptitle.startsWith("Special/")) {
-    specialPages[ptitle.split("Special/")[1]]();
+  if (ptitle.startsWith('Special/')) {
+    specialPages[ptitle.split('Special/')[1]]();
   } else {
     // Load wiki page
     jget('pages/'+ptitle+'.md', function(pbody) {
