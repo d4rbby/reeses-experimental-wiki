@@ -59,7 +59,7 @@ function ghGetFiles(path) {
 var specialPages = {
   Search: function() {
     require(['lib/mustache/mustache.js'], function(Mustache) {
-      var t = window.location.hash;
+      var t = window.location.hash.splice(1);
       var cel = document.getElementById('content');
       if (t == '') {
         // Search page
