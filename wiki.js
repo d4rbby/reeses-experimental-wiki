@@ -36,69 +36,66 @@ function jget(url, cb) {
   };
 }
 
-// On window load
-window.addEventListener('load', function() {  
-  // Initializing Message
-  console.log("Initializing...");
-  
-  jget('CONFIG', function(data) {
-    // Load config
-    data.split('\n').forEach(function(l) {
-      var kv = l.split('=');
-      config[kv[0]] = kv[1];
-    });
-    
-    // Get wiki title
-    var ptitle = window.location.href.split('?')[1];
-    if (!ptitle) {
-      ptitle = config.homepage;
-    }
-    
-    // Load wiki page
-    jget('pages/'+ptitle+'.md', function(pbody) {
-      require("lib/marked/marked.js", function(marked) {
-        // Convert the markdown to HTML
-        var pbodym = marked(pbody);
-        
-        // Insert content into the DOM
-        document.getElementById('title').innerHTML = ptitle;
-        document.getElementById('content').innerHTML = pbodym;      
+// Initializing Message
+console.log("Initializing...");
 
-        // Setup KaTeX
-        require('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
-         require('lib/katex/autoload.js', function(renderMathInElement) {
-            renderMathInElement(document.body, { delimiters: [
-              {left: "$$", right: "$$", display: true},
-              {left: "$", right: "$", display: false}
-            ]});
-          });
-        });
-        
-        // Setup Highlight.js
-        require('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', function(hljs) {
-          hljs.initHighlighting();
-        });
-        
-        // Setup Bindings
-        document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
-          i.innerHTML = pbody;
-        });
+jget('CONFIG', function(data) {
+  // Load config
+  data.split('\n').forEach(function(l) {
+    var kv = l.split('=');
+    config[kv[0]] = kv[1];
+  });
 
-        document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
-          i.innerHTML = pbodym;
-        });
-        
-        document.querySelectorAll('[data-bind="title"]').forEach(function (i) {
-          i.innerText = ptitle;
-        });
-        
-        jget("https://api.github.com/repos/carverh/wiki/commits", function(r) {
-          
-        });
+  // Get wiki title
+  var ptitle = window.location.href.split('?')[1];
+  if (!ptitle) {
+    ptitle = config.homepage;
+  }
 
-        // Log success message to console
-        console.log("Done loading wiki page '"+ptitle+"'.");
+  // Load wiki page
+  jget('pages/'+ptitle+'.md', function(pbody) {
+    require("lib/marked/marked.js", function(marked) {
+      // Convert the markdown to HTML
+      var pbodym = marked(pbody);
+
+      // Insert content into the DOM
+      document.getElementById('title').innerHTML = ptitle;
+      document.getElementById('content').innerHTML = pbodym;      
+
+      // Setup KaTeX
+      require('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
+       require('lib/katex/autoload.js', function(renderMathInElement) {
+          renderMathInElement(document.body, { delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]});
+        });
       });
+
+      // Setup Highlight.js
+      require('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', function(hljs) {
+        hljs.initHighlighting();
+      });
+
+      // Setup Bindings
+      document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
+        i.innerHTML = pbody;
+      });
+
+      document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
+        i.innerHTML = pbodym;
+      });
+
+      document.querySelectorAll('[data-bind="title"]').forEach(function (i) {
+        i.innerText = ptitle;
+      });
+
+      jget("https://api.github.com/repos/carverh/wiki/commits", function(r) {
+
+      });
+
+      // Log success message to console
+      console.log("Done loading wiki page '"+ptitle+"'.");
     });
   });
 });
