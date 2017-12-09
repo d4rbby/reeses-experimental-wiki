@@ -74,7 +74,6 @@ var specialPages = {
         }, false);
       } else {
         // Results page
-        var rquery = window.location.hash;
         /*
         jget('https://api.github.com/repos/carverh/wiki/contents/pages', function(data) {
           var dato = JSON.parse(data);
@@ -87,10 +86,10 @@ var specialPages = {
         */
         
         jget('FILES', function(data) {
-          var rfiles = data.split('\n');
+          var files = data.split('\n');
           cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
-            query: rquery,
-            results: rfiles
+            query: t,
+            results: files
           }); 
         });
       }
