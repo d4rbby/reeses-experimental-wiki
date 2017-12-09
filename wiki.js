@@ -27,7 +27,7 @@ function jobj() {
 // AJAX - HTTP GET
 function jget(url, cb) {
   var xhttp = jobj();
-  xhttp.open("GET", url, true);
+  xhttp.open('GET', url, true);
   xhttp.send();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -40,7 +40,10 @@ function jget(url, cb) {
 }
 
 // Initializing Message
-console.log("Initializing...");
+console.log('Initializing...');
+
+// Load non-state-specific libraries
+require(['lib/prefixfree/prefixfree.js']);
 
 jget('CONFIG', function(data) {
   // Load config
