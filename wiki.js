@@ -67,13 +67,20 @@ var specialPages = {
       // Search page
       cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
       var sform = document.getElementById('sform');
+      var ssubmit = document.getElementById('ssubmit');
       var squery = document.getElementById('squery');
-      sform.addEventListener('submit', function(ev) {
+      
+      // Submition handler
+      function handleSubmit(ev) {
         window.location.replace('?Special/Search#'+squery.value);
         window.location.reload();
         ev.preventDefault();
         return false;
-      }, false);
+      }
+      
+      // Handlers
+      sform.addEventListener('submit', handleSubmit, false);
+      ssubmit.addEventListener('click', handleSubmit, false);
       
       if (t != '') {
         // Results page
