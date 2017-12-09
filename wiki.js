@@ -23,6 +23,7 @@ var specialPages = {
         var squery = document.getElementById('squery');
         sform.addEventListener("submit", function() {
           window.location.replace("?Special/Search#"+squery.value);
+          return false;
         });
       } else {
         // Results page
