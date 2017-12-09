@@ -119,7 +119,7 @@ jget('CONFIG', function(data) {
 
         // Log success message to console
         console.log("Done loading wiki page '"+ptitle+"'.");
-      }
+      });
     });
-  });
+  }
 });
