@@ -13,15 +13,15 @@ var katex;
 // Special page handlers
 var specialPages = {
   Search: function() {
-    require(['lib/mustache/mustache.js'], function(mustache) {
+    require(['lib/mustache/mustache.js'], function(Mustache) {
       var t = window.location.hash;
       var cel = document.getElementById('content');
       if (t == '') {
         // Search page
-        cel.innerHTML = mustache(document.getElementById("tp-search").innerHTML);
+        cel.innerHTML = Mustache.render(document.getElementById("tp-search").innerHTML);
       } else {
         // Results page
-        cel.innerHTML = mustache(document.getElementById("tp-results").innerHTML);
+        cel.innerHTML = Mustache.render(document.getElementById("tp-results").innerHTML);
       }
     });
   }
