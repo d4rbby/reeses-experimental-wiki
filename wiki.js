@@ -53,7 +53,7 @@ window.addEventListener('load', function() {
     
     // Load wiki page
     jget('pages/'+ptitle+'.md', function(pbody) {
-      head.load("lib/marked/marked.js", function() {
+      require("lib/marked/marked.js", function(marked) {
         // Convert the markdown to HTML
         var pbodym = marked(pbody);
         
@@ -62,8 +62,8 @@ window.addEventListener('load', function() {
         document.getElementById('content').innerHTML = pbodym;      
 
         // Setup KaTeX
-        head.load('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
-          head.load('lib/katex/autoload.js', function() {
+        require('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', function() {
+         require('lib/katex/autoload.js', function(renderMathInElement) {
             renderMathInElement(document.body, { delimiters: [
               {left: "$$", right: "$$", display: true},
               {left: "$", right: "$", display: false}
@@ -72,7 +72,7 @@ window.addEventListener('load', function() {
         });
         
         // Setup Highlight.js
-        head.load('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', function() {
+        require('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', function(hljs) {
           hljs.initHighlighting();
         });
         
