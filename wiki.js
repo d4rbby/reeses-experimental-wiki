@@ -21,10 +21,11 @@ var specialPages = {
         cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
         var sform = document.getElementById('sform');
         var squery = document.getElementById('squery');
-        sform.addEventListener("submit", function() {
+        sform.addEventListener("submit", function(ev) {
           window.location.replace("?Special/Search#"+squery.value);
+          ev.preventDefault();
           return false;
-        });
+        }, false);
       } else {
         // Results page
         cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML);
