@@ -13,7 +13,7 @@ var katex;
 // Special page handlers
 var specialPages = {
   Search: function() {
-    require(['lib/tinystache/tinystache.js'], function(mustache) {
+    require(['lib/mustache/mustache.js'], function(mustache) {
       var t = window.location.hash;
       var cel = document.getElementById('content');
       if (t == '') {
