@@ -77,7 +77,7 @@ jget('CONFIG', function(data) {
 
   // Special page handling
   if (ptitle.startsWith("Special/")) {
-    specialPages[ptitle.split("Special/")[1]](;
+    specialPages[ptitle.split("Special/")[1]]();
   }
   
   // Load wiki page
