@@ -112,7 +112,10 @@ jget('CONFIG', function(data) {
   });
 
   // Get wiki title
-  var ptitle = window.location.href.split('?')[1].split('#')[0];
+  var ptitle;
+  if (window.location.href.split('?')) {
+    ptitle = window.location.href.split('?')[1].split('#')[0];
+  }
   if (!ptitle) {
     ptitle = config.homepage;
   }
