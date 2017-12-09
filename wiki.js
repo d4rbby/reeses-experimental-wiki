@@ -78,48 +78,48 @@ jget('CONFIG', function(data) {
   // Special page handling
   if (ptitle.startsWith("Special/")) {
     specialPages[ptitle.split("Special/")[1]]();
-  }
-  
-  // Load wiki page
-  jget('pages/'+ptitle+'.md', function(pbody) {
-    require(['lib/marked/marked.js'], function(marked) {
-      // Convert the markdown to HTML
-      var pbodym = marked(pbody);
+  } else {
+    // Load wiki page
+    jget('pages/'+ptitle+'.md', function(pbody) {
+      require(['lib/marked/marked.js'], function(marked) {
+        // Convert the markdown to HTML
+        var pbodym = marked(pbody);
 
-      // Insert content into the DOM
-      document.getElementById('title').innerHTML = ptitle;
-      document.getElementById('content').innerHTML = pbodym;      
+        // Insert content into the DOM
+        document.getElementById('title').innerHTML = ptitle;
+        document.getElementById('content').innerHTML = pbodym;      
 
-      // Setup KaTeX
-      require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function(_katex, renderMathInElement) {
-        // HACK: Set katex to _katex to define katex
-        katex = _katex;
-        renderMathInElement(document.body, { delimiters: [
-          {left: "$$", right: "$$", display: true},
-          {left: "$", right: "$", display: false}
-        ]});
-      });
+        // Setup KaTeX
+        require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function(_katex, renderMathInElement) {
+          // HACK: Set katex to _katex to define katex
+          katex = _katex;
+          renderMathInElement(document.body, { delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]});
+        });
 
-      // Setup Highlight.js
-      require(['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'], function(hljs) {
-        hljs.initHighlighting();
-      });
+        // Setup Highlight.js
+        require(['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'], function(hljs) {
+          hljs.initHighlighting();
+        });
 
-      // Setup Bindings
-      document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
-        i.innerHTML = pbody;
-      });
+        // Setup Bindings
+        document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
+          i.innerHTML = pbody;
+        });
 
-      document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
-        i.innerHTML = pbodym;
-      });
+        document.querySelectorAll('[data-bind="page html"]').forEach(function (i) {
+          i.innerHTML = pbodym;
+        });
 
-      document.querySelectorAll('[data-bind="title"]').forEach(function (i) {
-        i.innerText = ptitle;
-      });
+        document.querySelectorAll('[data-bind="title"]').forEach(function (i) {
+          i.innerText = ptitle;
+        });
 
-      // Log success message to console
-      console.log("Done loading wiki page '"+ptitle+"'.");
+        // Log success message to console
+        console.log("Done loading wiki page '"+ptitle+"'.");
+      }
     });
   });
 });
