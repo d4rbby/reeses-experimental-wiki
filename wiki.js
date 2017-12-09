@@ -93,10 +93,6 @@ jget('CONFIG', function(data) {
         i.innerText = ptitle;
       });
 
-      jget(['https://api.github.com/repos/carverh/wiki/commits'], function(r) {
-
-      });
-
       // Log success message to console
       console.log("Done loading wiki page '"+ptitle+"'.");
     });
