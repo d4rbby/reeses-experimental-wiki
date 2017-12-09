@@ -22,9 +22,9 @@ var specialPages = {
         var sform = document.getElementById('sform');
         var squery = document.getElementById('squery');
         sform.addEventListener("submit", function(ev) {
-          window.location.pathname("?Special/Search#"+squery.value);
-          ev.preventDefault();
+          window.location.replace("?Special/Search#"+squery.value);
           window.location.reload();
+          ev.preventDefault();
           return false;
         }, false);
       } else {
