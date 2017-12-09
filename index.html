@@ -18,7 +18,14 @@
             </div>
          </form>
       </template>
+      
       <template id="tp-results">
+         <p>Found <strong>{{results.length}}</strong> results for <strong>{{query}}</strong>.</p>
+         <ul>
+         {{#each results}}
+            <li><a href="?{{this}}">{{this}}</a></li>
+         {{/each}}
+         </ul>
       </template>
    </head>
    <body>
