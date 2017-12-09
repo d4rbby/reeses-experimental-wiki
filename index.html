@@ -23,7 +23,7 @@
          <p>Found <strong>{{results.length}}</strong> results for <strong>{{query}}</strong>.</p>
          <ul>
          {{#results}}
-            <li><a href="?{{this}}">{{this}}</a></li>
+            <li><a href="?{{.}}">{{.}}</a></li>
          {{/results}}
          </ul>
       </template>
