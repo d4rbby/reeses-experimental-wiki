@@ -69,6 +69,7 @@ var specialPages = {
       var sform = document.getElementById('sform');
       var ssubmit = document.getElementById('ssubmit');
       var squery = document.getElementById('squery');
+      var sresults = document.getElementById('sresults');
       
       // Submition handler
       function handleSubmit(ev) {
@@ -103,7 +104,7 @@ var specialPages = {
               files.push(file);
             }
           });
-          cel.innerHTML += Mustache.render(document.getElementById('tp-results').innerHTML, {
+          sresults.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
             query: t,
             results: files
           }); 
