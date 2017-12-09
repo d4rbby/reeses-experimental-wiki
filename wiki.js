@@ -7,6 +7,9 @@
 @file Javascript for DorpWiki
 */
 
+// Globals
+var katex;
+
 // Variables
 var config = {};
 
