@@ -24,6 +24,7 @@ var specialPages = {
         sform.addEventListener("submit", function(ev) {
           window.location.replace("?Special/Search#"+squery.value);
           ev.preventDefault();
+          specialPages.Search();
           return false;
         }, false);
       } else {
