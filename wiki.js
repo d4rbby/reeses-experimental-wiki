@@ -63,18 +63,19 @@ var specialPages = {
       var cel = document.getElementById('content');
       var cet = document.getElementById('title');
       cet.innerText = 'Special/Search';
-      if (t == '') {
-        // Search page
-        cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
-        var sform = document.getElementById('sform');
-        var squery = document.getElementById('squery');
-        sform.addEventListener('submit', function(ev) {
-          window.location.replace('?Special/Search#'+squery.value);
-          window.location.reload();
-          ev.preventDefault();
-          return false;
-        }, false);
-      } else {
+      
+      // Search page
+      cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
+      var sform = document.getElementById('sform');
+      var squery = document.getElementById('squery');
+      sform.addEventListener('submit', function(ev) {
+        window.location.replace('?Special/Search#'+squery.value);
+        window.location.reload();
+        ev.preventDefault();
+        return false;
+      }, false);
+      
+      if (t != '') {
         // Results page
         /*
         jget('https://api.github.com/repos/carverh/wiki/contents/pages', function(data) {
@@ -86,7 +87,7 @@ var specialPages = {
           });
         });
         */
-        
+
         jget('FILES', function(data) {
           var afiles = data.split('\n');
           var files = [];
@@ -95,7 +96,7 @@ var specialPages = {
               files.push(file);
             }
           });
-          cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
+          cel.innerHTML += Mustache.render(document.getElementById('tp-results').innerHTML, {
             query: t,
             results: files
           }); 
