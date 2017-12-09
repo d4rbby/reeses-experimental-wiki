@@ -113,7 +113,7 @@ jget('CONFIG', function(data) {
 
   // Get wiki title
   var ptitle;
-  if (window.location.href.split('?')) {
+  if (window.location.href.split('?').length > 1) {
     ptitle = window.location.href.split('?')[1].split('#')[0];
   }
   if (!ptitle) {
