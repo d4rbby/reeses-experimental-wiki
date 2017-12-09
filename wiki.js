@@ -10,31 +10,6 @@
 // Globals
 var katex;
 
-// Special page handlers
-var specialPages = {
-  Search: function() {
-    require(['lib/mustache/mustache.js'], function(Mustache) {
-      var t = window.location.hash;
-      var cel = document.getElementById('content');
-      if (t == '') {
-        // Search page
-        cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
-        var sform = document.getElementById('sform');
-        var squery = document.getElementById('squery');
-        sform.addEventListener("submit", function(ev) {
-          window.location.replace("?Special/Search#"+squery.value);
-          window.location.reload();
-          ev.preventDefault();
-          return false;
-        }, false);
-      } else {
-        // Results page
-        cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML);
-      }
-    });
-  }
-};
-
 // Variables
 var config = {};
 
@@ -63,6 +38,55 @@ function jget(url, cb) {
     }
   };
 }
+
+function ghGetFiles(path) {
+  var out = [];
+  jget('https://api.github.com/repos/carverh/wiki/contents/pages/'+path, function(data) {
+    var dato = JSON.parse(data);
+    dato.forEach(function(i) {
+      if (i.type == 'file') {
+        out.push(i.path.split('pages/')[1].split('.md')[0]);
+      } else {
+        var fl = ghGetFiles(i.path.split('pages/')[1]);
+        var out = out.concat(fl);
+      }
+    });
+  });
+  return out;
+}
+
+// Special page handlers
+var specialPages = {
+  Search: function() {
+    require(['lib/mustache/mustache.js'], function(Mustache) {
+      var t = window.location.hash;
+      var cel = document.getElementById('content');
+      if (t == '') {
+        // Search page
+        cel.innerHTML = Mustache.render(document.getElementById('tp-search').innerHTML);
+        var sform = document.getElementById('sform');
+        var squery = document.getElementById('squery');
+        sform.addEventListener('submit', function(ev) {
+          window.location.replace('?Special/Search#'+squery.value);
+          window.location.reload();
+          ev.preventDefault();
+          return false;
+        }, false);
+      } else {
+        // Results page
+        var rquery = window.location.hash;
+        jget('https://api.github.com/repos/carverh/wiki/contents/pages', function(data) {
+          var dato = JSON.parse(data);
+          var rfiles = ghGetFiles('/');
+          cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
+            query: rquery,
+            results: rfiles
+          });
+        });
+      }
+    });
+  }
+};
 
 // Initializing Message
 console.log('Initializing...');
