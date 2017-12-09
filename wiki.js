@@ -88,7 +88,7 @@ var specialPages = {
         */
         
         jget('FILES', function(data) {
-          var files = data.split('\n').slice(-1);
+          var files = data.split('\n').splice(-1);
           cel.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
             query: t,
             results: files
