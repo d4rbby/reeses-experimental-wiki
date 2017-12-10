@@ -1,7 +1,7 @@
 **Aclevo** was a ""content creation""" organization where I "worked" at. It is run by [ReasonablySelenium](?ReasonablySelenium).
 
 ## Drama
-Aclevo is known for being in a lot of drama wars.
+Aclevo is known for being involved in a lot of drama.
 
 ### May 2016 - TTSC Drama
 In May 2016, Aclevo was involved in a plot to remove [Thunderbirds101](?Thunderbirds101) and [DuckyDucklet](?DuckyDucklet) from power on the [TTSC](?TTSC) Wiki and Discord via hacking.
