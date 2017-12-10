@@ -130,9 +130,6 @@ var specialPages = {
 // Initializing Message
 console.log('Initializing...');
 
-// Load non-state-specific libraries
-require(['lib/prefixfree/prefixfree.js']);
-
 jget('CONFIG', function(data) {
   // Load config
   data.split('\n').forEach(function(l) {
@@ -162,7 +159,10 @@ jget('CONFIG', function(data) {
         // Insert content into the DOM
         document.getElementById('title').innerHTML = ptitle;
         document.getElementById('content').innerHTML = pbodym;      
-
+        
+        // Setup PrefixFree
+        require(['lib/prefixfree/prefixfree.js']);
+        
         // Setup KaTeX
         require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function(_katex, renderMathInElement) {
           // HACK: Set katex to _katex to define katex
@@ -177,6 +177,9 @@ jget('CONFIG', function(data) {
         require(['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'], function(hljs) {
           hljs.initHighlighting();
         });
+        
+        // Setup Hypothesis
+        require(['https://hypothes.is/embed.js']);
 
         // Setup Bindings
         document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
