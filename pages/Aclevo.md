@@ -12,7 +12,7 @@ Aclevo couldn't get access to the passwords because they aren't 1337 h4x0rs (obv
 Ducky then made a [DeviantArt](?DeviantArt) post about this which is available [here](http://archive.is/aV0wb).
 
 #### Screenshots
-<img src="https://kek.gg/i/5bs-sB.png" alt="Discord Screenshot 1" style="height:2in;width:2in">
-<img src="https://kek.gg/i/5_CFQX.jpeg" alt="Discord Screenshot 2" style="height:2in;width:2in">
-<img src="https://kek.gg/i/7DLWhc.jpeg" alt="Discord Screenshot 3" style="height:2in;width:2in">
-<img src="https://kek.gg/i/6gK6j3.png" alt="Discord Screenshot 4" style="height:2in;width:2in">
+<img src="https://kek.gg/i/5bs-sB.png" alt="Discord Screenshot 1" style="height:4in;width:4in">
+<img src="https://kek.gg/i/5_CFQX.jpeg" alt="Discord Screenshot 2" style="height:4in;width:4in">
+<img src="https://kek.gg/i/7DLWhc.jpeg" alt="Discord Screenshot 3" style="height:4in;width:4in">
+<img src="https://kek.gg/i/6gK6j3.png" alt="Discord Screenshot 4" style="height:4in;width:4in">
