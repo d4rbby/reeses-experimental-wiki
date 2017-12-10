@@ -95,6 +95,9 @@ var specialPages = {
       var squery = document.getElementById('squery');
       var sresults = document.getElementById('sresults');
       
+      // Update the search box's value
+      if (t != '') squery.value = t;
+      
       // Submition handler
       function handleSubmit(ev) {
         window.location.replace('?Special/Search#'+squery.value);
@@ -124,7 +127,7 @@ var specialPages = {
           var afiles = data.split('\n');
           var files = [];
           afiles.forEach(function(file) {
-            if (RegExp(t).test(file.toLowerCase())) {
+            if (RegExp(t.toLowerCase()).test(file.toLowerCase())) {
               files.push(file);
             }
           });
