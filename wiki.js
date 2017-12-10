@@ -55,6 +55,30 @@ function ghGetFiles(path) {
   return out;
 }
 
+// Requires all libraries that are loaded after the page is loaded
+function requireRemaining() {
+  // Setup PrefixFree
+  require(['lib/prefixfree/prefixfree.js']);
+
+  // Setup KaTeX
+  require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function(_katex, renderMathInElement) {
+    // HACK: Set katex to _katex to define katex
+    katex = _katex;
+    renderMathInElement(document.body, { delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false}
+    ]});
+  });
+
+  // Setup Highlight.js
+  require(['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'], function(hljs) {
+    hljs.initHighlighting();
+  });
+
+  // Setup Hypothesis
+  require(['https://hypothes.is/embed.js']);
+}
+
 // Special page handlers
 var specialPages = {
   Search: function() {
@@ -107,9 +131,10 @@ var specialPages = {
           sresults.innerHTML = Mustache.render(document.getElementById('tp-results').innerHTML, {
             query: t,
             results: files
-          }); 
+          });
         });
       }
+      requireRemaining();
     });
   },
   Listing: function() {
@@ -124,6 +149,7 @@ var specialPages = {
         }); 
       });
     });
+    requireRemaining();
   }
 };
 
@@ -158,28 +184,7 @@ jget('CONFIG', function(data) {
 
         // Insert content into the DOM
         document.getElementById('title').innerHTML = ptitle;
-        document.getElementById('content').innerHTML = pbodym;      
-        
-        // Setup PrefixFree
-        require(['lib/prefixfree/prefixfree.js']);
-        
-        // Setup KaTeX
-        require(['https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js', 'lib/katex/autoload.js'], function(_katex, renderMathInElement) {
-          // HACK: Set katex to _katex to define katex
-          katex = _katex;
-          renderMathInElement(document.body, { delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false}
-          ]});
-        });
-
-        // Setup Highlight.js
-        require(['https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'], function(hljs) {
-          hljs.initHighlighting();
-        });
-        
-        // Setup Hypothesis
-        require(['https://hypothes.is/embed.js']);
+        document.getElementById('content').innerHTML = pbodym;
 
         // Setup Bindings
         document.querySelectorAll('[data-bind="page markdown"]').forEach(function (i) {
@@ -193,6 +198,9 @@ jget('CONFIG', function(data) {
         document.querySelectorAll('[data-bind="title"]').forEach(function (i) {
           i.innerText = ptitle;
         });
+        
+        // Require the rest of the libraries
+        requireRemaining();
 
         // Log success message to console
         console.log("Done loading wiki page '"+ptitle+"'.");
