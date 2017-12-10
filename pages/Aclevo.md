@@ -1,4 +1,4 @@
-**Aclevo** was a ""content creation""" organization where I "worked" at. It is run by [ReasonablySelenium](?ReasonablySelenium).
+**Aclevo** is a ""content creation""" organization where I "worked" at. It is run by [ReasonablySelenium](?ReasonablySelenium).
 
 ## Drama
 Aclevo is known for being involved in a lot of drama.
